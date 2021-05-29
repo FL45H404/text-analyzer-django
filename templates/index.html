@@ -9,7 +9,19 @@
 <body>
     <h1>WELCOME TO TEXT ANALYZER.</h1>
     <div class="container">
+        <form action="/analyze" method="get">
+            <textarea name="text" id="text" cols="30" rows="10"></textarea><br>
+            <input type="checkbox" name="uppercase" id="uppercase">uppercase<br>
+            <input type="checkbox" name="removepunc" id="removepunc">removepunc<br>
+            <button id="btn" type="submit">SUBMIT</button>
+        </form>
          
+<br>
+<h1 id="result"> {{res}}</h1>
+<p id="aa">
+    {{result}}
+</p>
     </div>
+   
 </body>
 </html>
