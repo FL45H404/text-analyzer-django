@@ -4,24 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    <h1>WELCOME TO TEXT ANALYZER.</h1>
+    <h1 class="text-capitalize display-1 text-center text-danger">WELCOME TO TEXT ANALYZER</h1>
     <div class="container">
-        <form action="/analyze" method="get">
-            <textarea name="text" id="text" cols="30" rows="10"></textarea><br>
-            <input type="checkbox" name="uppercase" id="uppercase">uppercase<br>
-            <input type="checkbox" name="removepunc" id="removepunc">removepunc<br>
-            <button id="btn" type="submit">SUBMIT</button>
+        <form action="analyze/" method="post">{% csrf_token %}
+            <div class="form-floating">
+                <textarea class="form-control" name="text" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2"></label>  
+
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input"  name="uppercase" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">uppercase</label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" name="removepunc" type="checkbox" id="flexSwitchCheckChecked" >
+                <label class="form-check-label" for="flexSwitchCheckChecked">removepunc</label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" name="newlineremover" type="checkbox" id="flexSwitchCheckDisabled" >
+                <label class="form-check-label" for="flexSwitchCheckDisabled">newlineremover</label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm" >ANALYZE</button>
         </form>
          
-<br>
+<br><div class="container ">
 <h1 id="result"> {{res}}</h1>
-<p id="aa">
-    {{result}}
-</p>
+</div>
+
+<div class="form-floating text-center" >
+    <textarea class="form-control" name="text"  id="floatingTextarea2" style="height: 150px">{{result}}</textarea>
+    <label for="floatingTextarea2"></label>
+  </div>
     </div>
-   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 </body>
 </html>
